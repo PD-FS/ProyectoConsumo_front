@@ -1,0 +1,58 @@
+<ion-header>
+  <ion-navbar>
+    <ion-title>
+      Localidades Chéveres
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+    <ion-slides pager>
+
+        <ion-slide style="background-color: green" >
+          <h2>Slide 1</h2>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/7/79/Herbstlandschaft_%28am_Rebhang%29.jpg/270px-Herbstlandschaft_%28am_Rebhang%29.jpg">
+        </ion-slide>
+      
+        <ion-slide style="background-color: blue">
+          <h2>Slide 2</h2>
+        </ion-slide>
+      
+        <ion-slide style="background-color: red">
+          <h2>Slide 3</h2>
+        </ion-slide>
+      
+      </ion-slides>
+  <div>
+    <ion-list>
+      <ion-item *ngFor="let localidad of district_areas">
+
+        <h2>{{ localidad.name | uppercase }}</h2>
+          <p>
+            <b>Población:</b> 5555
+          </p>
+      </ion-item>
+    </ion-list>
+    <ion-list>
+        <button ion-item (click)="openPage(homePage)">
+          Eventos
+        </button>
+        <button ion-item (click)="openPage(friendsPage)">
+          Friends
+        </button>
+        <button ion-item (click)="openPage(eventsPage)">
+          Events
+        </button>
+        <button ion-item (click)="closeMenu()">
+          Close Menu
+        </button>
+      </ion-list>
+
+      <ion-tabs>
+          <ion-tab tabIcon="water" tabTitle="Water" [root]="tab1"></ion-tab>
+          <ion-tab tabIcon="leaf" tabTitle="Life" [root]="tab2"></ion-tab>
+          <ion-tab tabIcon="flame" tabTitle="Fire" [root]="tab3"></ion-tab>
+          <ion-tab tabIcon="magnet" tabTitle="Force" [root]="tab4"></ion-tab>
+        </ion-tabs>`
+  </div>
+</ion-content>
