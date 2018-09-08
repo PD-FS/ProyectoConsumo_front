@@ -1,5 +1,7 @@
 {
   "name": "otraApp",
-  "integrations": {},
+  "integrations": {
+    "cordova": {}
+  },
   "type": "ionic-angular"
 }
