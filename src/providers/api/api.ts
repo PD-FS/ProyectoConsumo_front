@@ -8,6 +8,7 @@ import { Observable } from 'rxjs/Observable';
 @Injectable()
 export class Api {
   url: string = 'https://floating-chamber-80486.herokuapp.com';
+  urlPropia: string = 'https://floating-chamber-80486.herokuapp.com';
 
   constructor(public http: HttpClient) {
   }
@@ -26,7 +27,7 @@ export class Api {
         reqOpts.params = reqOpts.params.set(k, params[k]);
       } 
     }
-
+    console.log(this.url + '/' + endpoint + '.json');
     return this.http.get(this.url + '/' + endpoint + '.json', reqOpts);
   }
 

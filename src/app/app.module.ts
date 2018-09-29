@@ -16,6 +16,8 @@ import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
 import { DistrictAreaProvider } from '../providers/district-area/district-area';
 import { UpzProvider } from '../providers/upz/upz';
+import { EnterprisesProvider } from '../providers/enterprises/enterprises';
+import { AwardsProvider } from '../providers/awards/awards';
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -71,7 +73,9 @@ export function provideSettings(storage: Storage) {
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },
     DistrictAreaProvider,
-    UpzProvider
+    UpzProvider,
+    EnterprisesProvider,
+    AwardsProvider
   ]
 })
 export class AppModule { }
