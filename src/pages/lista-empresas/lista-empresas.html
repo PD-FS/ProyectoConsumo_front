@@ -16,10 +16,10 @@
 <ion-content padding>
 <ion-content class="card-background-page">
 
-  <ion-card *ngFor="let empresa of enterprises">
+  <ion-card *ngFor="let empresa of enterprises" (click)="selectEnterprise(empresa);">
     <img src="{{ empresa.coverPage}}"/>
     <div class="card-title">{{ empresa.name }}</div>
-    <div class="card-subtitle">{{ empresa.address }}</div>
+    <div class="card-subtitle">{{ empresa.address }} <ion-badge item-end>{{ empresa.awards.length}} premios</ion-badge></div>
   </ion-card>
 
 </ion-content>

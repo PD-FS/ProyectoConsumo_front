@@ -7,6 +7,9 @@ import { Config, Nav, Platform } from 'ionic-angular';
 import { FirstRunPage } from '../pages';
 import { Settings } from '../providers';
 
+
+import { OneSignal } from '@ionic-native/onesignal';
+
 @Component({
   template: `<ion-menu [content]="content">
     <ion-header>
@@ -32,6 +35,9 @@ export class MyApp {
   @ViewChild(Nav) nav: Nav;
 
   pages: any[] = [
+    { title: 'Empresas', component: 'ListaEmpresasPage' },
+    { title: 'Localidades', component: 'DistrictAreaPage' },
+    { title: 'UPZ', component: 'UpzPage' },
     { title: 'Tutorial', component: 'TutorialPage' },
     { title: 'Welcome', component: 'WelcomePage' },
     { title: 'Tabs', component: 'TabsPage' },
@@ -51,10 +57,29 @@ export class MyApp {
       // Here you can do any higher level native things you might need.
       this.statusBar.styleDefault();
       this.splashScreen.hide();
+      let isApp = false;
+      if(platform.is('core') || platform.is('mobileweb')) {
+        isApp = false;
+      } else {
+        isApp = true;
+      }
+      if(isApp)
+      {
+        var notificationOpenedCallback = function(jsonData) {
+          console.log('notificationOpenedCallback: ' + JSON.stringify(jsonData));
+        };
+
+        window["plugins"].OneSignal
+          .startInit("51b98fbc-e654-4f66-989a-cde91601f393", "503400885551")
+          .handleNotificationOpened(notificationOpenedCallback)
+          .endInit();  
+      }
+      
     });
     this.initTranslate();
   }
-
+  
+        
   initTranslate() {
     // Set the default language for translation strings, and the current language.
     this.translate.setDefaultLang('en');

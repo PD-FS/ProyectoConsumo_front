@@ -7,14 +7,20 @@ page-lista-empresas {
   .card-title {
     position: absolute;
     top: 36%;
-    font-size: 2.2em;
+    font-size: 2em;
     width: 100%;
     font-weight: bold;
     color: #fff;
   }
+  
+  .card-md
+  {
+    
+      border-radius: 15px;
+  }
 
   .card-subtitle {
-    font-size: 1.0em;
+    font-size: 0.9em;
     position: absolute;
     top: 52%;
     width: 100%;

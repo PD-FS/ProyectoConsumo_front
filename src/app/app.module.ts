@@ -11,6 +11,8 @@ import { IonicApp, IonicErrorHandler, IonicModule } from 'ionic-angular';
 
 import { Geolocation } from '@ionic-native/geolocation';
 
+import { OneSignal } from '@ionic-native/onesignal';
+
 import { Items } from '../mocks/providers/items';
 import { Settings, User, Api } from '../providers';
 import { MyApp } from './app.component';
@@ -18,6 +20,8 @@ import { DistrictAreaProvider } from '../providers/district-area/district-area';
 import { UpzProvider } from '../providers/upz/upz';
 import { EnterprisesProvider } from '../providers/enterprises/enterprises';
 import { AwardsProvider } from '../providers/awards/awards';
+
+import { ListaPremiosPage } from "../pages/lista-premios/lista-premios";
 
 // The translate loader needs to know where to load i18n files
 // in Ionic's static asset pipeline.
@@ -42,7 +46,8 @@ export function provideSettings(storage: Storage) {
 
 @NgModule({
   declarations: [
-    MyApp
+    MyApp,
+    ListaPremiosPage
   ],
   imports: [
     BrowserModule,
@@ -59,7 +64,8 @@ export function provideSettings(storage: Storage) {
   ],
   bootstrap: [IonicApp],
   entryComponents: [
-    MyApp
+    MyApp,
+    ListaPremiosPage
   ],
   providers: [
     Api,
@@ -69,6 +75,7 @@ export function provideSettings(storage: Storage) {
     SplashScreen,
     StatusBar,
     Geolocation,
+    OneSignal,
     { provide: Settings, useFactory: provideSettings, deps: [Storage] },
     // Keep this to enable Ionic's runtime error handling during development
     { provide: ErrorHandler, useClass: IonicErrorHandler },

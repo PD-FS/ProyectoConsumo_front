@@ -1,6 +1,10 @@
 import { Component } from '@angular/core';
 import { IonicPage, NavController, NavParams } from 'ionic-angular';
 import { EnterprisesProvider } from '../../providers/enterprises/enterprises';
+import { AwardsProvider } from '../../providers/awards/awards';
+import { ListaPremiosPage } from '../lista-premios/lista-premios';
+
+
 
 /**
  * Generated class for the ListaEmpresasPage page.
@@ -13,15 +17,19 @@ import { EnterprisesProvider } from '../../providers/enterprises/enterprises';
 @Component({
   selector: 'page-lista-empresas',
   templateUrl: 'lista-empresas.html',
+  //entryComponents:[ ListaPremiosPage],
 })
 export class ListaEmpresasPage {
 
-enterprises: ArrayBuffer;
+  enterprises: ArrayBuffer;
+  listaPremiosPage: ListaPremiosPage;
 
   constructor(
     public navCtrl: NavController,
     public navParams: NavParams,
-    public enterpriseProvider: EnterprisesProvider
+    public enterpriseProvider: EnterprisesProvider,
+    public awardsProvider: AwardsProvider
+    
     ) {
   }
 
@@ -33,9 +41,7 @@ enterprises: ArrayBuffer;
     this.enterpriseProvider.getAllEnterprises().subscribe(
       (data) =>
       {
-        console.log("Buscando empresas");
         this.enterprises = data;
-        console.log(data);
       },
       (error) =>
       {
@@ -45,4 +51,8 @@ enterprises: ArrayBuffer;
 
   }
 
+  selectEnterprise(empresa)
+  {
+    this.navCtrl.push(ListaPremiosPage, {empresa: empresa});
+  }
 }

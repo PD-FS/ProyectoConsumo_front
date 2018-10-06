@@ -15,7 +15,13 @@ import { IonicPage, NavController, NavParams } from 'ionic-angular';
 })
 export class ListaPremiosPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  empresa: any
+  
+  constructor(
+    public navCtrl: NavController,
+    public navParams: NavParams)
+  {
+    this.empresa = this.navParams.get('empresa');
   }
 
   ionViewDidLoad() {

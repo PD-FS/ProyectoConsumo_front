@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Api } from '../api/api';
 
 /*
   Generated class for the AwardsProvider provider.
@@ -10,8 +11,17 @@ import { Injectable } from '@angular/core';
 @Injectable()
 export class AwardsProvider {
 
-  constructor(public http: HttpClient) {
-    console.log('Hello AwardsProvider Provider');
+ endpoint: string = "awards";
+ 
+  constructor(
+    public http: HttpClient,
+    public api: Api
+  
+  ) {   }
+
+  getAwardsByEnterprise(enterprise: string, params?: any) {
+    return this.api.get(this.endpoint, [])
   }
 
+  
 }

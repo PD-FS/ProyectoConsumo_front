@@ -9,5 +9,8 @@ import { ListaPremiosPage } from './lista-premios';
   imports: [
     IonicPageModule.forChild(ListaPremiosPage),
   ],
+  exports: [
+    ListaPremiosPage
+  ]
 })
 export class ListaPremiosPageModule {}
