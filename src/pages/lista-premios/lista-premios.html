@@ -26,7 +26,7 @@
   </ion-card>
   -->
   <ion-card *ngFor="let premio of empresa.awards">
-  <img src="https://ionicframework.com/dist/preview-app/www/assets/img/nin-live.png"/>
+  <img [src]="premio.picture"/>
   <ion-card-content>
     <ion-card-title>
       {{premio.name}}
