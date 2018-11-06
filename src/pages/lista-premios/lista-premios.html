@@ -18,24 +18,36 @@
   <h1>{{empresa.name}}</h1>
   <p><ion-icon name="pin"></ion-icon> {{empresa.address}}</p>
   <p><ion-icon name="call"></ion-icon> {{empresa.phone}}</p>
-  <!--
-  <ion-card *ngFor="let premio of premios">
-    <img src="{{ empresa.coverPage}}"/>
-    <div class="card-title">{{ empresa.name }}</div>
-    <div class="card-subtitle">{{ empresa.address }}</div>
-  </ion-card>
-  -->
+  
+  <ion-row responsive-sm wrap> 
+    <ion-col width-50 *ngFor="let premio of empresa.awards  let i = index">
+       <ion-card>
+          <img [src]="premio.picture"/>
+          <ion-card-content>
+            <ion-card-title>
+              {{premio.name}}
+              <ion-badge item-end>{{ premio.civicoins}} CiviCoins</ion-badge>
+              </ion-card-title>
+            <p>
+              
+              {{premio.description}}
+            </p>
+          </ion-card-content>
+        </ion-card>
+    </ion-col>
+   </ion-row>
+  
   <ion-card *ngFor="let premio of empresa.awards">
-  <img [src]="premio.picture"/>
-  <ion-card-content>
-    <ion-card-title>
-      {{premio.name}}
-      <ion-badge item-end>{{ premio.civicoins}} CiviCoins</ion-badge>
-      </ion-card-title>
-    <p>
-      
-      {{premio.description}}
-    </p>
-  </ion-card-content>
-</ion-card>
+    <img [src]="premio.picture"/>
+    <ion-card-content>
+      <ion-card-title>
+        {{premio.name}}
+        <ion-badge item-end>{{ premio.civicoins}} CiviCoins</ion-badge>
+        </ion-card-title>
+      <p>
+        
+        {{premio.description}}
+      </p>
+    </ion-card-content>
+  </ion-card>
 </ion-content>
