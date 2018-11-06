@@ -7,8 +7,8 @@ import { Observable } from 'rxjs/Observable';
  */
 @Injectable()
 export class Api {
-  //url: string = 'https://floating-chamber-80486.herokuapp.com';
-  url: string = 'http://localhost:3000';
+  url: string = 'https://floating-chamber-80486.herokuapp.com';
+  //url: string = 'http://localhost:3000';
 
   constructor(public http: HttpClient) {
   }
